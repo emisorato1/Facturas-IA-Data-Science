@@ -1,0 +1,33 @@
+# Archivos y carpetas a ignorar en Git para proyectos de ciencia de datos y Python
+
+# Entornos virtuales
+.env
+venv/
+__pycache__/
+*.pyc
+
+# Bases de datos y archivos temporales
+*.db
+*.sqlite3
+*.csv
+*.xlsx
+*.log
+
+
+
+# Archivos de configuración de usuario
+*.env
+.DS_Store
+Thumbs.db
+
+# Archivos de salida y resultados
+*.out
+*.bak
+
+
+
+# Archivos de VSCode
+.vscode/
+
+
+
