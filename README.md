@@ -56,6 +56,151 @@ Este proyecto automatiza la extracción y gestión de datos clave de facturas en
 
 
 
+# 🚀 Guía de Instalación Detallada - Proyecto de Facturas con IA
+
+## 🔧 Instalación paso a paso
+
+### Paso 1: Instalar Anaconda/Miniconda
+
+#### Opción A: Anaconda (Recomendado para principiantes)
+1. Ve a [https://www.anaconda.com/download](https://www.anaconda.com/download)
+2. Descarga la versión para tu sistema operativo
+3. Ejecuta el instalador
+4. **IMPORTANTE**: Marca la casilla "Add Anaconda to my PATH environment variable"
+5. Completa la instalación
+
+#### Opción B: Miniconda (Más ligero)
+1. Ve a [https://docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html)
+2. Descarga la versión para tu sistema operativo
+3. Ejecuta el instalador
+4. Sigue las instrucciones en pantalla
+
+### Paso 2: Verificar la instalación
+
+Abre la terminal/consola y escribe:
+```bash
+conda --version
+```
+
+Si aparece un número de versión (ej: conda 23.x.x), ¡perfecto! Si no, reinicia la terminal y prueba de nuevo.
+
+### Paso 3: Descargar el proyecto
+
+#### Opción A: Si tienes Git instalado
+```bash
+git clone [URL_DEL_REPOSITORIO]
+cd "Proyecto de Facturas con IA"
+```
+
+### Paso 4: Crear el entorno virtual
+
+En la terminal, navega a la carpeta del proyecto y ejecuta:
+
+```bash
+# Crear el entorno desde el archivo de configuración
+conda env create -f entorno.yml
+
+# Activar el entorno
+conda activate gestor_gastos
+```
+
+**¿Qué hace esto?**
+- Crea un "entorno virtual" con todas las librerías necesarias
+- Es como tener una caja de herramientas separada para este proyecto
+- Evita conflictos con otros programas
+
+### Paso 5: Verificar que todo funciona
+
+```bash
+python --version
+```
+
+Debería mostrar: `Python 3.13.x`
+
+```bash
+python -c "import pandas; print('Pandas instalado correctamente')"
+```
+
+Debería mostrar: `Pandas instalado correctamente`
+
+### Paso 6: Configurar la API de OpenAI
+
+**Configurar el proyecto**:
+   - En la carpeta del proyecto, crea un archivo llamado `.env`
+   - Abre el archivo `.env` con un editor de texto
+   - Escribe exactamente esto (reemplaza con tu clave):
+   ```
+   OPENAI_API_KEY=sk-tu_clave_real_aqui
+   ```
+   - Guarda el archivo
+
+### Paso 7: Organizar tus facturas
+
+1. **Crear la estructura de carpetas**:
+   ```
+   Proyecto de Facturas con IA/
+   └── facturas/
+       ├── factura mes 1/
+       ├── factura mes 2/
+       └── factura mes 3/
+   ```
+
+2. **Colocar tus PDFs**:
+   - Pon tus facturas PDF en las carpetas correspondientes
+   - Puedes organizarlas como quieras (por mes, por proveedor, etc.)
+   - El sistema procesará todas las carpetas automáticamente
+
+## 🚀 Primera ejecución
+
+### 1. Procesar las facturas
+```bash
+# Asegúrate de estar en el entorno correcto
+conda activate gestor_gastos
+
+# Ejecutar el procesamiento
+python main.py
+```
+
+**¿Qué verás?**
+- Mensajes como "📄 Procesando factura: ./facturas/factura mes 1/factura1.pdf"
+- El progreso de cada factura
+- Al final: "Proceso de extracción y estructuración de facturas completado exitosamente"
+
+### 2. Ver los resultados
+```bash
+python ver_facturas.py
+```
+
+**¿Qué verás?**
+- Una tabla con todas las facturas procesadas
+- Columnas: fecha_factura, proveedor, concepto, importe
+- Los datos ya estructurados y listos para usar
+
+## 🔍 Verificar que todo funciona
+
+### Test básico
+1. **Ejecuta el procesamiento**: `python main.py`
+2. **Verifica que no hay errores** en la consola
+3. **Revisa los resultados**: `python ver_facturas.py`
+4. **Confirma que aparece el archivo**: `facturas.db`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 🔄 Funcionamiento detallado del sistema
 
 ### Paso 1: Extracción de texto (funciones.py - extraer_texto_pdf)
@@ -185,155 +330,3 @@ La tabla `facturas` tiene las columnas:
 - `importe` (FLOAT): Monto en pesos argentinos
 
 
-
-
-
-# 🚀 Guía de Instalación Detallada - Proyecto de Facturas con IA
-
-Esta guía está diseñada para usuarios que no tienen mucha experiencia con Python o desarrollo de software.
-
-## 📋 Antes de empezar
-
-### ¿Qué necesitas?
-1. **Una computadora con Windows, Mac o Linux**
-2. **Conexión a internet**
-3. **Una cuenta de OpenAI** (gratuita o de pago)
-4. **Archivos PDF de facturas** para procesar
-
-### ¿Qué vas a instalar?
-- Python (lenguaje de programación)
-- Conda (gestor de entornos)
-- Librerías de Python necesarias
-- El proyecto de facturas
-
-## 🔧 Instalación paso a paso
-
-### Paso 1: Instalar Anaconda/Miniconda
-
-#### Opción A: Anaconda (Recomendado para principiantes)
-1. Ve a [https://www.anaconda.com/download](https://www.anaconda.com/download)
-2. Descarga la versión para tu sistema operativo
-3. Ejecuta el instalador
-4. **IMPORTANTE**: Marca la casilla "Add Anaconda to my PATH environment variable"
-5. Completa la instalación
-
-#### Opción B: Miniconda (Más ligero)
-1. Ve a [https://docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html)
-2. Descarga la versión para tu sistema operativo
-3. Ejecuta el instalador
-4. Sigue las instrucciones en pantalla
-
-### Paso 2: Verificar la instalación
-
-Abre la terminal/consola y escribe:
-```bash
-conda --version
-```
-
-Si aparece un número de versión (ej: conda 23.x.x), ¡perfecto! Si no, reinicia la terminal y prueba de nuevo.
-
-### Paso 3: Descargar el proyecto
-
-#### Opción A: Si tienes Git instalado
-```bash
-git clone [URL_DEL_REPOSITORIO]
-cd "Proyecto de Facturas con IA"
-```
-
-#### Opción B: Descarga manual
-1. Ve al repositorio del proyecto
-2. Haz clic en "Code" → "Download ZIP"
-3. Extrae el archivo ZIP en una carpeta de tu elección
-4. Abre la terminal en esa carpeta
-
-### Paso 4: Crear el entorno virtual
-
-En la terminal, navega a la carpeta del proyecto y ejecuta:
-
-```bash
-# Crear el entorno desde el archivo de configuración
-conda env create -f entorno.yml
-
-# Activar el entorno
-conda activate gestor_gastos
-```
-
-**¿Qué hace esto?**
-- Crea un "entorno virtual" con todas las librerías necesarias
-- Es como tener una caja de herramientas separada para este proyecto
-- Evita conflictos con otros programas
-
-### Paso 5: Verificar que todo funciona
-
-```bash
-python --version
-```
-
-Debería mostrar: `Python 3.13.x`
-
-```bash
-python -c "import pandas; print('Pandas instalado correctamente')"
-```
-
-Debería mostrar: `Pandas instalado correctamente`
-
-### Paso 6: Configurar la API de OpenAI
-
-**Configurar el proyecto**:
-   - En la carpeta del proyecto, crea un archivo llamado `.env`
-   - Abre el archivo `.env` con un editor de texto
-   - Escribe exactamente esto (reemplaza con tu clave):
-   ```
-   OPENAI_API_KEY=sk-tu_clave_real_aqui
-   ```
-   - Guarda el archivo
-
-### Paso 7: Organizar tus facturas
-
-1. **Crear la estructura de carpetas**:
-   ```
-   Proyecto de Facturas con IA/
-   └── facturas/
-       ├── factura mes 1/
-       ├── factura mes 2/
-       └── factura mes 3/
-   ```
-
-2. **Colocar tus PDFs**:
-   - Pon tus facturas PDF en las carpetas correspondientes
-   - Puedes organizarlas como quieras (por mes, por proveedor, etc.)
-   - El sistema procesará todas las carpetas automáticamente
-
-## 🚀 Primera ejecución
-
-### 1. Procesar las facturas
-```bash
-# Asegúrate de estar en el entorno correcto
-conda activate gestor_gastos
-
-# Ejecutar el procesamiento
-python main.py
-```
-
-**¿Qué verás?**
-- Mensajes como "📄 Procesando factura: ./facturas/factura mes 1/factura1.pdf"
-- El progreso de cada factura
-- Al final: "Proceso de extracción y estructuración de facturas completado exitosamente"
-
-### 2. Ver los resultados
-```bash
-python ver_facturas.py
-```
-
-**¿Qué verás?**
-- Una tabla con todas las facturas procesadas
-- Columnas: fecha_factura, proveedor, concepto, importe
-- Los datos ya estructurados y listos para usar
-
-## 🔍 Verificar que todo funciona
-
-### Test básico
-1. **Ejecuta el procesamiento**: `python main.py`
-2. **Verifica que no hay errores** en la consola
-3. **Revisa los resultados**: `python ver_facturas.py`
-4. **Confirma que aparece el archivo**: `facturas.db`
