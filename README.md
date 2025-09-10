@@ -1,28 +1,11 @@
 # 📊 Proyecto de Facturas con IA
 
-## 📑 Índice
 
-- [🎯 Contexto y necesidad de negocio](#-contexto-y-necesidad-de-negocio)
-- [🚀 Solución propuesta](#-solución-propuesta)
-- [🛠️ Tecnologías utilizadas](#️-tecnologías-utilizadas)
-- [📋 Requisitos previos](#-requisitos-previos)
-- [🚀 Instalación paso a paso](#-instalación-paso-a-paso)
-- [🔄 Funcionamiento detallado del sistema](#-funcionamiento-detallado-del-sistema)
-- [📊 Uso del sistema](#-uso-del-sistema)
-- [📁 Estructura del proyecto](#-estructura-del-proyecto)
-- [🔧 Configuración avanzada](#-configuración-avanzada)
-- [🚨 Solución de problemas comunes](#-solución-de-problemas-comunes)
-- [📈 Procesamiento incremental](#-procesamiento-incremental)
-- [🎯 Objetivo final](#-objetivo-final)
-- [📊 Próximos pasos](#-próximos-pasos)
-- [💡 Consejos útiles](#-consejos-útiles)
-- [🆘 ¿Necesitas ayuda?](#-¿necesitas-ayuda)
-
-## 🎯 Contexto y necesidad de negocio
+## Contexto 
 
 En muchas empresas, la gestión de facturas de gastos es un proceso complicado debido a la variedad de formatos que utilizan los diferentes proveedores. Extraer manualmente información clave como fecha, importe y concepto de cada factura es una tarea laboriosa, propensa a errores y consume mucho tiempo. Las empresas grandes suelen contratar personal administrativo para esta labor, mientras que en las pequeñas, este trabajo recae en los propios dueños o se descuida por falta de tiempo.
 
-## 🚀 Solución propuesta
+## Solución
 
 Este proyecto automatiza la extracción y gestión de datos clave de facturas en PDF utilizando Python e Inteligencia Artificial. La solución permite:
 
@@ -32,7 +15,7 @@ Este proyecto automatiza la extracción y gestión de datos clave de facturas en
 4. **Almacenamiento**: Guardar los datos en una base de datos SQLite
 5. **Visualización**: Crear dashboards interactivos con Power BI
 
-## 🛠️ Tecnologías utilizadas
+## Tecnologías utilizadas
 
 - **Python 3.13**: Scripts y procesamiento de datos
 - **OpenAI GPT-4o-mini**: Inteligencia Artificial para extracción de información
@@ -42,38 +25,24 @@ Este proyecto automatiza la extracción y gestión de datos clave de facturas en
 - **SQLite**: Base de datos para almacenamiento
 - **Power BI**: Visualización y dashboards
 
-## 📋 Requisitos previos
-
-### Software necesario:
-- Python 3.13 o superior
-- Power BI Desktop (opcional, para visualización)
-- Controlador ODBC para SQLite (para conectar con Power BI)
 
 ### Cuenta de API:
 - Cuenta de OpenAI con API key válida
 
 
 
+# Guía de Instalación Detallada - Proyecto de Facturas con IA
 
-
-# 🚀 Guía de Instalación Detallada - Proyecto de Facturas con IA
-
-## 🔧 Instalación paso a paso
+## Instalación paso a paso
 
 ### Paso 1: Instalar Anaconda/Miniconda
 
-#### Opción A: Anaconda (Recomendado para principiantes)
+#### Anaconda (Recomendado para principiantes)
 1. Ve a [https://www.anaconda.com/download](https://www.anaconda.com/download)
 2. Descarga la versión para tu sistema operativo
 3. Ejecuta el instalador
 4. **IMPORTANTE**: Marca la casilla "Add Anaconda to my PATH environment variable"
 5. Completa la instalación
-
-#### Opción B: Miniconda (Más ligero)
-1. Ve a [https://docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html)
-2. Descarga la versión para tu sistema operativo
-3. Ejecuta el instalador
-4. Sigue las instrucciones en pantalla
 
 ### Paso 2: Verificar la instalación
 
@@ -86,7 +55,7 @@ Si aparece un número de versión (ej: conda 23.x.x), ¡perfecto! Si no, reinici
 
 ### Paso 3: Descargar el proyecto
 
-#### Opción A: Si tienes Git instalado
+#### Si tienes Git instalado
 ```bash
 git clone [URL_DEL_REPOSITORIO]
 cd "Proyecto de Facturas con IA"
@@ -104,26 +73,9 @@ conda env create -f entorno.yml
 conda activate gestor_gastos
 ```
 
-**¿Qué hace esto?**
-- Crea un "entorno virtual" con todas las librerías necesarias
-- Es como tener una caja de herramientas separada para este proyecto
-- Evita conflictos con otros programas
 
-### Paso 5: Verificar que todo funciona
 
-```bash
-python --version
-```
-
-Debería mostrar: `Python 3.13.x`
-
-```bash
-python -c "import pandas; print('Pandas instalado correctamente')"
-```
-
-Debería mostrar: `Pandas instalado correctamente`
-
-### Paso 6: Configurar la API de OpenAI
+### Paso 5: Configurar la API de OpenAI
 
 **Configurar el proyecto**:
    - En la carpeta del proyecto, crea un archivo llamado `.env`
@@ -134,7 +86,8 @@ Debería mostrar: `Pandas instalado correctamente`
    ```
    - Guarda el archivo
 
-### Paso 7: Organizar tus facturas
+### Paso 6: Organizar tus facturas
+
 
 1. **Crear la estructura de carpetas**:
    ```
@@ -161,39 +114,10 @@ conda activate gestor_gastos
 python main.py
 ```
 
-**¿Qué verás?**
-- Mensajes como "📄 Procesando factura: ./facturas/factura mes 1/factura1.pdf"
-- El progreso de cada factura
-- Al final: "Proceso de extracción y estructuración de facturas completado exitosamente"
-
 ### 2. Ver los resultados
 ```bash
 python ver_facturas.py
 ```
-
-**¿Qué verás?**
-- Una tabla con todas las facturas procesadas
-- Columnas: fecha_factura, proveedor, concepto, importe
-- Los datos ya estructurados y listos para usar
-
-## 🔍 Verificar que todo funciona
-
-### Test básico
-1. **Ejecuta el procesamiento**: `python main.py`
-2. **Verifica que no hay errores** en la consola
-3. **Revisa los resultados**: `python ver_facturas.py`
-4. **Confirma que aparece el archivo**: `facturas.db`
-
-
-
-
-
-
-
-
-
-
-
 
 
 
